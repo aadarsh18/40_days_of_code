@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<bool>v(100000000,true);
+int main()
+{
+	int i,j;
+    v[0]=false;
+    v[1]=false;
+    for(i=2;i*i<=100000000;i++)
+    {
+        if(v[i]==true)
+        {
+            for(j=i*i;j<=100000000;j=j+i)
+            v[j]=false;
+        }
+    }
+	int n;
+	scanf("%d",&n);
+	if(v[n]==true)
+	printf("Number is prime\n");
+	else
+	printf("Number is not prime\n");
+	return 0;
+}
