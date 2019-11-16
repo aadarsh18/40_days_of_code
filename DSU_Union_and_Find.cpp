@@ -34,7 +34,7 @@ void unionfun(ll A[],ll size[],ll a,ll b)
     ll root_a,root_b;
     root_a=root(A,a);
     root_b=root(A,b);
-    if(size[a]<size[b])
+    if(size[root_a]<size[root_b])
     {
         A[root_a]=A[root_b];
         size[root_b]+=size[root_a];
