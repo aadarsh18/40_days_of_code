@@ -37,12 +37,12 @@ void unionn(ll A[],ll size[],ll a,ll b)
     if(size[root_a]<size[root_b])
     {
         A[root_a]=A[root_b];
-        size[b]+=size[a];
+        size[root_b]+=size[root_a];
     }
     else
     {
         A[root_b]=A[root_a];
-        size[a]+=size[b];
+        size[root_a]+=size[root_b];
     }
 }
 bool find(ll A[],ll a,ll b)
