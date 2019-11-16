@@ -84,19 +84,7 @@ void DFS(ll p ,ll s,ll  vis[],ll start[],ll end[])
 	for(i=1; i<=n; i++)
 		cout<<end[i]<<" ";
 	cout<<"\n\n";
-	ll tx1,tx2,ty1,ty2;
-      for(i=0;i<m;i++)
-      {
-          x=edge[i].u;
-          y=edge[i].v;
-          tx1=start[x];ty1=start[y];
-          tx2=end[x];ty2=end[y];
-          if(tx1>ty1&&tx2<ty2)
-          {
-              flag=1;
-              break;
-          }
-      }
+	 
       if(flag==1)
       cout<<"cyclic";
       else
