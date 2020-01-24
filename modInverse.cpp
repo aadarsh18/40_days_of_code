@@ -15,25 +15,29 @@
 using namespace std;
 #define ll long long int
 #define MOD 1000000007
-ll modInverse(ll a, ll m) 
-{ 
-	ll m0 = m; 
-	ll y = 0, x = 1; 
-	if (m == 1) 
-	return 0; 
-	while (a > 1) 
-	{ 
-		ll q = a / m; 
-		ll t = m; 
-		m = a % m, a = t; 
-		t = y; 
-		y = x - q * y; 
-		x = t; 
-	} 
-	if (x < 0) 
-	x += m0; 
-	return x; 
-} 
+ll modular(ll a,ll b,ll m)
+{
+    if(a==0)
+    return 0;
+    if(b==0)
+    return 1;
+    ll ans;
+    if(b%2==0)
+    {
+        ans=modular(a,b/2,m);
+        ans=(ans*ans)%m;
+    }
+    else
+    {
+        ans=a%m;
+        ans=(ans*modular(a,b-1,m)%m)%m;
+    }
+    return (ans+m)%m;
+}
+ll modInverse(ll a,ll b)
+{
+	return modular(a,b-2,b);
+}
 int main() 
 { 
 	     ll a,m;
