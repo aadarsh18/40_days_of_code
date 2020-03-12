@@ -1,4 +1,4 @@
-/* Dynamic Programming C++ implementation of LCS problem */
+
 #include<bits/stdc++.h> 
 using namespace std;
 #define ll long long int
