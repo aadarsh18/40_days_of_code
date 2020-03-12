@@ -19,11 +19,7 @@ using namespace std;
 #define ll long long int
 vector<ll>Gph[1000000];
 ll cnt=0,flag=0;
-struct Node
-{
-    ll u;
-    ll v;
-};
+
 void DFS(ll p ,ll s,ll  vis[],ll start[],ll end[])
 {
       vis[s]=1;
@@ -53,14 +49,9 @@ void DFS(ll p ,ll s,ll  vis[],ll start[],ll end[])
      cin>>n>>m;
      ll start[n+5],end[n+5],i,vis[n+5];
      ll x,y;
-     vector<Node>edge;
-     Node z;
      for(i=0;i<m;i++)
      {
          cin>>x>>y;
-         z.u=x;
-         z.v=y;
-         edge.pb(z);
          Gph[x].pb(y);
          Gph[y].pb(x);
      }
