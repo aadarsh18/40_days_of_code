@@ -1,0 +1,56 @@
+#include <bits/stdc++.h> 
+#include<iostream>
+#include<algorithm>
+#include<string>
+#include<bitset>
+#include<deque>
+#include<iterator>
+#include<list>
+#include<map>
+#include<queue>
+#include<set>
+#include<stack>
+#include<unordered_map>
+#include<unordered_set>
+#include<vector>
+using namespace std;
+#define ll long long int
+#define pb push_back
+#define pf push_front
+#define pii pair<ll,ll>
+#define mp make_pair 
+#define M 1000000007
+int main()
+{
+
+     ll n;
+     cin>>n;
+     ll arr[n],i;
+     for(i=0;i<n;i++)
+     	cin>>arr[i];
+     pair<ll,ll>pr[n];
+     for(i=0;i<n;i++)
+     {
+     	pr[i].first=arr[i];
+     	pr[i].second=i;
+     }
+    sort(pr,pr+n);
+    ll j,ans=0,c;
+    vector<bool>vis(n,false);
+    for(i=0;i<n;i++)
+    {
+    	if(vis[i]||pr[i].second==i)
+    		continue;
+    	j=i;
+    	c=0;
+    	while(!vis[j])
+    	{
+    		vis[j]=1;
+    		j=pr[j].second;
+    		c++;
+    	}
+    	ans+=c-1;
+    }
+    cout<<ans;
+	return 0;
+}
