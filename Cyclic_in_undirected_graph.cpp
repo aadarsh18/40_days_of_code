@@ -82,3 +82,83 @@ void DFS(ll p ,ll s,ll  vis[],ll start[],ll end[])
       cout<<"non cyclic";
      return 0;
  }
+
+
+
+USING BFS 
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll  long long  int
+#define mod 1000000007
+#define pb push_back
+#define fast() ios_base::sync_with_stdio(false);cin.tie(NULL)
+bool comp(const pair<int,int> &a,  
+               const pair<int,int> &b) 
+{ 
+       return (a.first > b.first); 
+} 
+ll f=0;
+void bfs(vector<ll>vtr[],ll s,ll vis[],ll n)
+{
+      queue<ll>q;
+      q.push(s);
+      vis[s]=1;
+      ll par[n+5];
+      ll i;
+      for(i=0;i<=n;i++)
+         par[i]=-1;
+    while(!q.empty())
+    {
+        ll z=q.front();
+        q.pop();
+        for(i=0;i<vtr[z].size();i++)
+        {
+            ll num=vtr[z][i];
+            if(vis[num]==0)
+            {
+                 vis[num]=1;
+                 par[num]=z;
+                 q.push(num);
+            }
+            else if(par[z]!=num)
+              f=1;
+        }
+    }
+}
+  void solve()
+  {
+      ll n,m;
+      cin>>n>>m;
+      ll x,y;
+     vector<ll>vtr[n+5];
+      ll i;
+      for(i=0;i<m;i++)
+      {
+          cin>>x>>y;
+          vtr[x].push_back(y);
+          vtr[y].push_back(x);
+      }
+      
+    ll vis[n+2]={0};
+   
+    for(i=0;i<=n;i++)
+      vis[i]=0;
+   for(i=1;i<=n;i++)
+   {
+    if(vis[i]==0)
+      {
+        bfs(vtr,i,vis,n);
+      }
+   }
+    if(f)
+      cout<<"NO";
+    else
+      cout<<"YES";
+  }
+int main()
+{
+    fast();
+    solve();
+    return 0;
+}
